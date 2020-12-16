@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 export const register = newUser => {
     return axios
     .post('Users/register',{
@@ -8,12 +9,14 @@ export const register = newUser => {
         Username: newUser.Username,
         Password: newUser.Password,
         Alamat: newUser.Alamat,
+        Kota: newUser.Kota,
+        Foto: newUser.Foto,
         Roles:newUser.Roles
     })
     .then(res => {
         console.log("Registed")
         return res;
-        //console.log(req.body)
+        //console.log(produk)
     })
     .catch(err => {
         console.log(err);
@@ -24,16 +27,35 @@ export const register = newUser => {
 export const login = user =>{
     return axios
     .post('Users/login', {
-        Email: user.Email,
+        Username: user.Username,
         Password: user.Password,
-        Roles: user.Roles
+        //Roles: user.Roles
     })
-    .then(res =>{
+    .then(res =>{ 
         console.log(res.data);
-        localStorage.setItem('usertoken',res.token)
-        return res.data  
+        localStorage.setItem('usertoken',res.data)
+        return res.data
     })
     .catch(err =>{
+        console.log('err', err);
+        return err;
+    })
+}
+
+export const loginAdmin = Admin =>{
+    return axios
+    .post('admin/login', {
+        Username: Admin.Username,
+        Password: Admin.Password,
+        //Roles: user.Roles
+    })
+    .then(res =>{ 
+        console.log(res.data);
+        localStorage.setItem('usertoken',res.data)
+        return res.data
+    })
+    .catch(err =>{
+        console.log('err', err);
         return err;
     })
 }

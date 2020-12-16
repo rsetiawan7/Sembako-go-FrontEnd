@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme)=>({
       },
 
       
-    }));
+    })); 
     const warna = createMuiTheme({
       palette: {
         primary: {
@@ -104,7 +104,7 @@ const LoginIndex =(props)=> {
 
     return(
     <Router>
-    <NavbarAwal/>
+      <NavbarAwal/>
     <ThemeProvider theme={warna} id="container">
     <div className={classes.root}>
      <Desktop>
@@ -120,7 +120,7 @@ const LoginIndex =(props)=> {
              <Grid item xs={3}>
              <Grid container justify="center" spacing={spacing}>
                 <Paper className={classes.paper}
-                >
+                > 
                 <img className={classes.img} alt="penjual" src={gambarpenjual}></img>
                     <Button onClick={()=> history.push('/LoginPenjual')}>Login</Button>
                 </Paper>
@@ -130,7 +130,7 @@ const LoginIndex =(props)=> {
             <Grid container justify="center" spacing={spacing}>
                 <Paper className={classes.paper}>
                     <img className={classes.img2} alt="pemebeli" src={gambarpembeli}></img>
-                        <Button justify="center"onClick={()=> history.push('/RegisterPenjual')}>Register</Button>
+                        <Button justify="center"onClick={()=> history.push('/Register')}>Register</Button>
                 </Paper>
                 </Grid>
             </Grid>
